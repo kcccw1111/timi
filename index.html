@@ -7,45 +7,53 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        /* 轮播核心样式 - 整体缩小（关键调整：max-width/min-height/aspect-ratio） */
+        /* 轮播核心样式 - 彻底去除白边 */
         .carousel-wrapper {
             width: 100%;
-            max-width: 500px; /* 原700px → 缩小为500px（电脑端宽度） */
-            min-width: 240px; /* 手机端最小宽度同步缩小 */
+            max-width: 500px; /* 缩小后的宽度 */
+            min-width: 240px;
             height: auto;
-            min-height: 150px; /* 原200px → 缩小为150px（手机端高度） */
+            min-height: 150px;
             margin: 0 auto;
             position: relative;
-            overflow: hidden;
-            aspect-ratio: 7/4; /* 保持宽高比，缩小后不变形 */
+            overflow: hidden !important; /* 强制隐藏溢出，杜绝白边 */
+            aspect-ratio: 7/4; /* 固定宽高比 */
+            padding: 0 !important; /* 移除容器内边距 */
+            border: none !important; /* 确保无边框 */
         }
         .carousel-slide {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100% !important; /* 强制占满容器宽度 */
+            height: 100% !important; /* 强制占满容器高度 */
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0 !important; /* 移除轮播项外边距 */
+            padding: 0 !important; /* 移除轮播项内边距 */
         }
         .carousel-slide.active {
             opacity: 1;
         }
         .carousel-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100% !important; /* 图片强制占满容器 */
+            height: 100% !important; /* 图片强制占满容器 */
+            object-fit: cover !important; /* 图片铺满容器，裁切多余部分（无白边核心） */
+            object-position: center; /* 图片居中显示 */
+            border: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
-        /* 轮播按钮同步缩小 */
+        /* 轮播按钮 - 不遮挡图片，无白边 */
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 36px; /* 原40px → 缩小为36px */
-            height: 36px; /* 原40px → 缩小为36px */
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.9);
             color: #4F46E5;
@@ -58,24 +66,27 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
+            /* 按钮不占用容器空间，避免挤压图片 */
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .prev-btn {
-            left: 8px; /* 原10px → 缩小为8px */
+            left: 8px;
         }
         .next-btn {
-            right: 8px; /* 原10px → 缩小为8px */
+            right: 8px;
         }
-        /* 移动端响应式调整（同步缩小） */
+        /* 移动端响应式调整 */
         @media (max-width: 768px) {
             .carousel-wrapper {
-                max-width: 100%;
-                min-height: 140px; /* 原180px → 缩小为140px */
-                margin: 10px 0;
+                max-width: 100% !important; /* 手机端占满屏幕，无白边 */
+                min-height: 140px;
+                margin: 10px 0 !important;
             }
             .carousel-btn {
-                width: 28px; /* 原32px → 缩小为28px */
-                height: 28px; /* 原32px → 缩小为28px */
-                font-size: 12px; /* 原14px → 缩小为12px */
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
             }
             .hero-section {
                 flex-direction: column !important;
@@ -88,7 +99,17 @@
             }
             .hero-carousel {
                 width: 100% !important;
+                /* 移除轮播外层容器的圆角/阴影可能导致的白边 */
+                border-radius: 0 !important;
+                shadow: none !important;
+                overflow: hidden !important;
             }
+        }
+        /* 关键：移除所有可能导致白边的全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -138,7 +159,8 @@
             </div>
         </div>
 
-        <div class="md:w-1/2 hero-carousel rounded-xl shadow-lg overflow-hidden">
+        <!-- 轮播外层容器 - 移除可能导致白边的样式 -->
+        <div class="md:w-1/2 hero-carousel overflow-hidden rounded-xl shadow-lg">
             <div class="carousel-wrapper">
                 <div class="carousel-slide active">
                     <img src="main1.jpg" class="carousel-img" alt="Lab-grown diamond jewelry collection">
