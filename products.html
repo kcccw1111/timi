@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Timi Trading Limited</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- Navbar -->
+<nav class="fixed w-full bg-white/95 shadow-md z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-2">
+      <i class="fa-solid fa-gem text-indigo-600 text-2xl"></i>
+      <span class="text-xl font-bold">Timi Trading Limited</span>
+    </a>
+    <div class="hidden md:flex gap-8">
+      <a href="index.html" class="font-medium hover:text-indigo-600">Home</a>
+      <a href="products.html" class="font-medium text-indigo-600">Products</a>
+      <a href="about.html" class="font-medium hover:text-indigo-600">About Us</a>
+      <a href="contact.html" class="font-medium hover:text-indigo-600">Contact Us</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+  <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+    <div class="container mx-auto px-4 py-2">
+      <a href="index.html" class="block py-2 hover:bg-gray-100">Home</a>
+      <a href="products.html" class="block py-2 bg-gray-100">Products</a>
+      <a href="about.html" class="block py-2 hover:bg-gray-100">About Us</a>
+      <a href="contact.html" class="block py-2 hover:bg-gray-100">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 产品主体 -->
+<section class="pt-28 pb-16">
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-8 text-center">Our Products</h1>
+
+    <div class="flex flex-col md:flex-row gap-6">
+      
+      <!-- 左侧分类 -->
+      <div class="md:w-1/4 lg:w-1/5 w-full">
+        <div class="bg-white p-4 rounded-xl shadow sticky top-24">
+          <h3 class="font-bold text-lg mb-4">Categories</h3>
+          <ul class="space-y-2">
+            <li>
+              <button class="category-btn w-full text-left px-3 py-2 rounded-lg" data-category="all">
+                <i class="fa-solid fa-th mr-2"></i> All
+              </button>
+            </li>
+            <li>
+              <button class="category-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100" data-category="rings">
+                <i class="fa-solid fa-ring mr-2"></i> Rings
+              </button>
+            </li>
+            <li>
+              <button class="category-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100" data-category="necklaces">
+                <i class="fa-solid fa-link mr-2"></i> Necklaces
+              </button>
+            </li>
+            <li>
+              <button class="category-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100" data-category="earrings">
+                <i class="fa-solid fa-gem mr-2"></i> Earrings
+              </button>
+            </li>
+            <li>
+              <button class="category-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100" data-category="bracelets">
+                <i class="fa-solid fa-chain mr-2"></i> Bracelets
+              </button>
+            </li>
+            <li>
+              <button class="category-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100" data-category="others">
+                <i class="fa-solid fa-ellipsis mr-2"></i> Others
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 右侧产品区域 -->
+      <div class="md:w-3/4 lg:w-4/5 w-full">
+        <div class="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Rings -->
+          <div class="product-item all rings">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="rings.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Diamond Ring</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all rings">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="rings.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Silver Ring</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all rings">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="rings.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Gemstone Ring</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Necklaces -->
+          <div class="product-item all necklaces">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="TZ-1.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">TZ-1</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all necklaces">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="TZ-2.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">TZ-2</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all necklaces">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="TZ-3.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">TZ-3</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all necklaces">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="TZ-7.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">TZ-7</h3>
+              </div>
+            </div>
+
+          <!-- Earrings -->
+          <div class="product-item all earrings">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="earrings.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Diamond Earrings</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all earrings">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="earrings.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Pearl Earrings</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all earrings">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="earrings.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Gemstone Earrings</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bracelets -->
+          <div class="product-item all bracelets">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="bracelets.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Charm Bracelet</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all bracelets">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="bracelets.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Silver Bracelet</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all bracelets">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="bracelets.jpg" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Beaded Bracelet</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Others -->
+          <div class="product-item all others">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="https://picsum.photos/600/400?random=10" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Brooch</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all others">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="https://picsum.photos/600/400?random=11" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Hair Accessories</h3>
+              </div>
+            </div>
+          </div>
+          <div class="product-item all others">
+            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
+              <img src="https://picsum.photos/600/400?random=12" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="font-bold text-lg">Jewelry Set</h3>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <i class="fa-solid fa-gem text-amber-400 text-2xl"></i>
+          <span class="text-xl font-bold">Timi Trading Limited</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="text-gray-300 hover:text-amber-400">Home</a></li>
+          <li><a href="products.html" class="text-gray-300 hover:text-amber-400">Products</a></li>
+          <li><a href="about.html" class="text-gray-300 hover:text-amber-400">About Us</a></li>
+          <li><a href="contact.html" class="text-gray-300 hover:text-amber-400">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-4">Support</h4>
+        <ul class="space-y-2">
+          <li><a href="faq.html" class="text-gray-300 hover:text-amber-400">FAQ</a></li>
+          <li><a href="terms.html" class="text-gray-300 hover:text-amber-400">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+      © 2026 Timi Trading Limited. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 移动端菜单
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // 分类切换核心逻辑
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const productItems = document.querySelectorAll('.product-item');
+
+  // 切换分类的通用函数
+  function switchCategory(cat) {
+    // 按钮样式更新
+    categoryBtns.forEach(b => {
+      b.classList.remove('bg-indigo-600', 'text-white');
+      b.classList.add('hover:bg-gray-100');
+    });
+    // 选中对应按钮
+    const activeBtn = document.querySelector(`.category-btn[data-category="${cat}"]`);
+    if (activeBtn) {
+      activeBtn.classList.add('bg-indigo-600', 'text-white');
+      activeBtn.classList.remove('hover:bg-gray-100');
+    }
+    // 产品显示/隐藏
+    productItems.forEach(item => {
+      if (cat === 'all' || item.classList.contains(cat)) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+
+  // 点击分类按钮切换
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.category;
+      switchCategory(cat);
+      // 更新URL（不刷新页面）
+      history.pushState({}, '', `products.html?category=${cat}`);
+    });
+  });
+
+  // 从URL参数自动选中分类
+  window.addEventListener('load', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category') || 'all';
+    switchCategory(category);
+  });
+</script>
+
+</body>
+</html>

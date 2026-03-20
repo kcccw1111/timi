@@ -27,10 +27,10 @@
             <span class="text-xl font-bold">Timi Trading Limited</span>
         </a>
         <div class="hidden md:flex gap-8">
-            <a href="index.html" class="font-medium hover:text-indigo-600">Home</a>
-            <a href="index.html#products" class="font-medium hover:text-indigo-600">Products</a>
-            <a href="about.html" class="font-medium hover:text-indigo-600">About Us</a>
-            <a href="contact.html" class="font-medium hover:text-indigo-600">Contact Us</a>
+            <a href="index.html" class="font-medium hover:text-indigo-600 transition-colors">Home</a>
+            <a href="products.html?category=all" class="font-medium hover:text-indigo-600 transition-colors">Products</a>
+            <a href="about.html" class="font-medium text-indigo-600">About Us</a>
+            <a href="contact.html" class="font-medium hover:text-indigo-600 transition-colors">Contact Us</a>
         </div>
         <button id="menuBtn" class="md:hidden text-xl">
             <i class="fa-solid fa-bars"></i>
@@ -72,27 +72,17 @@
             <div>
                 <h4 class="text-lg font-bold mb-4">Quick Links</h4>
                 <ul class="space-y-2">
-                    <li><a href="index.html" class="text-gray-300 hover:text-amber-400">Home</a></li>
-                    <li><a href="index.html#products" class="text-gray-300 hover:text-amber-400">Products</a></li>
-                    <li><a href="about.html" class="text-gray-300 hover:text-amber-400">About Us</a></li>
-                    <li><a href="contact.html" class="text-gray-300 hover:text-amber-400">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-bold mb-4">Product Categories</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-300 hover:text-amber-400">Rings</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-amber-400">Necklaces</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-amber-400">Earrings</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-amber-400">Bracelets</a></li>
+                    <li><a href="index.html" class="text-gray-300 hover:text-amber-400 transition-colors">Home</a></li>
+                    <li><a href="products.html?category=all" class="text-gray-300 hover:text-amber-400 transition-colors">Products</a></li>
+                    <li><a href="about.html" class="text-amber-400">About Us</a></li>
+                    <li><a href="contact.html" class="text-gray-300 hover:text-amber-400 transition-colors">Contact Us</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-lg font-bold mb-4">Support</h4>
-                <!-- HTML文件名首字母小写 -->
                 <ul class="space-y-2">
-                    <li><a href="faq.html" class="text-gray-300 hover:text-amber-400">FAQ & Policies</a></li>
-                    <li><a href="terms.html" class="text-gray-300 hover:text-amber-400">Terms & Conditions</a></li>
+                    <li><a href="faq.html" class="text-gray-300 hover:text-amber-400 transition-colors">FAQ & Policies</a></li>
+                    <li><a href="terms.html" class="text-gray-300 hover:text-amber-400 transition-colors">Terms & Conditions</a></li>
                 </ul>
             </div>
         </div>
@@ -106,12 +96,12 @@
     const menuBtn = document.getElementById('menuBtn');
     menuBtn && menuBtn.addEventListener('click', () => {
         const mobileMenu = document.createElement('div');
-        mobileMenu.className = 'bg-white p-4 md:hidden';
+        mobileMenu.className = 'bg-white p-4 md:hidden absolute top-full left-0 w-full shadow-lg';
         mobileMenu.innerHTML = `
-            <a href="index.html" class="block py-2">Home</a>
-            <a href="index.html#products" class="block py-2">Products</a>
-            <a href="about.html" class="block py-2">About Us</a>
-            <a href="contact.html" class="block py-2">Contact Us</a>
+            <a href="index.html" class="block py-2 px-4 hover:bg-slate-100 transition-colors">Home</a>
+            <a href="products.html?category=all" class="block py-2 px-4 hover:bg-slate-100 transition-colors">Products</a>
+            <a href="about.html" class="block py-2 px-4 bg-indigo-50 text-indigo-600">About Us</a>
+            <a href="contact.html" class="block py-2 px-4 hover:bg-slate-100 transition-colors">Contact Us</a>
         `;
         document.querySelector('nav').appendChild(mobileMenu);
         menuBtn.remove();
