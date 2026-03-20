@@ -36,8 +36,8 @@
   </div>
 </nav>
 
-<!-- 产品主体 -->
-<section class="pt-28 pb-16">
+<!-- 产品主体 (添加ID用于精准滚动) -->
+<section id="productSection" class="pt-28 pb-16">
   <div class="container mx-auto px-4">
     <h1 class="text-3xl font-bold mb-8 text-center">Our Products</h1>
 
@@ -49,7 +49,7 @@
           <h3 class="font-bold text-lg mb-4">Categories</h3>
           <ul class="space-y-2">
             <li>
-              <button class="category-btn w-full text-left px-3 py-2 rounded-lg" data-category="all">
+              <button class="category-btn w-full text-left px-3 py-2 rounded-lg bg-indigo-600 text-white" data-category="all">
                 <i class="fa-solid fa-th mr-2"></i> All
               </button>
             </li>
@@ -73,41 +73,36 @@
                 <i class="fa-solid fa-chain mr-2"></i> Bracelets
               </button>
             </li>
-            <li>
-              <button class="category-btn w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100" data-category="others">
-                <i class="fa-solid fa-ellipsis mr-2"></i> Others
-              </button>
-            </li>
           </ul>
         </div>
       </div>
 
       <!-- 右侧产品区域 -->
-      <div class="md:w-3/4 lg:w-4/5 w-full">
+      <div id="productArea" class="md:w-3/4 lg:w-4/5 w-full">
         <div class="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- Rings -->
           <div class="product-item all rings">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="rings.jpg" class="w-full h-64 object-cover">
+              <img src="LJZ-02.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Diamond Ring</h3>
+                <h3 class="font-bold text-lg">LJZ-02</h3>
               </div>
             </div>
           </div>
           <div class="product-item all rings">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="rings.jpg" class="w-full h-64 object-cover">
+              <img src="LJZ-04.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Silver Ring</h3>
+                <h3 class="font-bold text-lg">LJZ-04</h3>
               </div>
             </div>
           </div>
           <div class="product-item all rings">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="rings.jpg" class="w-full h-64 object-cover">
+              <img src="LJZ-05.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Gemstone Ring</h3>
+                <h3 class="font-bold text-lg">LJZ-05</h3>
               </div>
             </div>
           </div>
@@ -144,29 +139,30 @@
                 <h3 class="font-bold text-lg">TZ-7</h3>
               </div>
             </div>
+          </div>
 
           <!-- Earrings -->
           <div class="product-item all earrings">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="earrings.jpg" class="w-full h-64 object-cover">
+              <img src="E-1.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Diamond Earrings</h3>
+                <h3 class="font-bold text-lg">E-1</h3>
               </div>
             </div>
           </div>
           <div class="product-item all earrings">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="earrings.jpg" class="w-full h-64 object-cover">
+              <img src="E-2.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Pearl Earrings</h3>
+                <h3 class="font-bold text-lg">E-2</h3>
               </div>
             </div>
           </div>
           <div class="product-item all earrings">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="earrings.jpg" class="w-full h-64 object-cover">
+              <img src="E-3.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Gemstone Earrings</h3>
+                <h3 class="font-bold text-lg">E-3</h3>
               </div>
             </div>
           </div>
@@ -174,51 +170,25 @@
           <!-- Bracelets -->
           <div class="product-item all bracelets">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="bracelets.jpg" class="w-full h-64 object-cover">
+              <img src="SL-2.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Charm Bracelet</h3>
+                <h3 class="font-bold text-lg">SL-2</h3>
               </div>
             </div>
           </div>
           <div class="product-item all bracelets">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="bracelets.jpg" class="w-full h-64 object-cover">
+              <img src="SL-3.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Silver Bracelet</h3>
+                <h3 class="font-bold text-lg">SL-3</h3>
               </div>
             </div>
           </div>
           <div class="product-item all bracelets">
             <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="bracelets.jpg" class="w-full h-64 object-cover">
+              <img src="SL-4.jpg" class="w-full h-64 object-cover">
               <div class="p-4">
-                <h3 class="font-bold text-lg">Beaded Bracelet</h3>
-              </div>
-            </div>
-          </div>
-
-          <!-- Others -->
-          <div class="product-item all others">
-            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="https://picsum.photos/600/400?random=10" class="w-full h-64 object-cover">
-              <div class="p-4">
-                <h3 class="font-bold text-lg">Brooch</h3>
-              </div>
-            </div>
-          </div>
-          <div class="product-item all others">
-            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="https://picsum.photos/600/400?random=11" class="w-full h-64 object-cover">
-              <div class="p-4">
-                <h3 class="font-bold text-lg">Hair Accessories</h3>
-              </div>
-            </div>
-          </div>
-          <div class="product-item all others">
-            <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition">
-              <img src="https://picsum.photos/600/400?random=12" class="w-full h-64 object-cover">
-              <div class="p-4">
-                <h3 class="font-bold text-lg">Jewelry Set</h3>
+                <h3 class="font-bold text-lg">SL-4</h3>
               </div>
             </div>
           </div>
@@ -274,21 +244,22 @@
   // 分类切换核心逻辑
   const categoryBtns = document.querySelectorAll('.category-btn');
   const productItems = document.querySelectorAll('.product-item');
+  const productSection = document.getElementById('productSection'); // 产品板块根元素
 
   // 切换分类的通用函数
   function switchCategory(cat) {
-    // 按钮样式更新
+    // 1. 按钮样式更新
     categoryBtns.forEach(b => {
       b.classList.remove('bg-indigo-600', 'text-white');
       b.classList.add('hover:bg-gray-100');
     });
-    // 选中对应按钮
     const activeBtn = document.querySelector(`.category-btn[data-category="${cat}"]`);
     if (activeBtn) {
       activeBtn.classList.add('bg-indigo-600', 'text-white');
       activeBtn.classList.remove('hover:bg-gray-100');
     }
-    // 产品显示/隐藏
+
+    // 2. 产品显示/隐藏
     productItems.forEach(item => {
       if (cat === 'all' || item.classList.contains(cat)) {
         item.classList.remove('hidden');
@@ -296,6 +267,22 @@
         item.classList.add('hidden');
       }
     });
+
+    // 3. 强制滚动到产品板块顶部 (关键修复)
+    // 方案1: 滚动到页面最顶部 (推荐)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // 平滑滚动，改为 'auto' 则瞬间跳转
+    });
+
+    // 方案2: 滚动到产品板块顶部 (如需精准定位产品区，注释方案1，启用方案2)
+    // if (productSection) {
+    //   const sectionTop = productSection.getBoundingClientRect().top + window.pageYOffset - 10;
+    //   window.scrollTo({
+    //     top: sectionTop,
+    //     behavior: 'smooth'
+    //   });
+    // }
   }
 
   // 点击分类按钮切换
@@ -303,7 +290,6 @@
     btn.addEventListener('click', () => {
       const cat = btn.dataset.category;
       switchCategory(cat);
-      // 更新URL（不刷新页面）
       history.pushState({}, '', `products.html?category=${cat}`);
     });
   });
