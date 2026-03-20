@@ -6,6 +6,17 @@
   <title>Products - Timi Trading Limited</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* 返回顶部按钮样式 */
+    .back-to-top {
+      position: relative;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    .back-to-top:hover {
+      transform: translateY(-3px);
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
@@ -36,7 +47,7 @@
   </div>
 </nav>
 
-<!-- 产品主体 (添加ID用于精准滚动) -->
+<!-- 产品主体 -->
 <section id="productSection" class="pt-28 pb-16">
   <div class="container mx-auto px-4">
     <h1 class="text-3xl font-bold mb-8 text-center">Our Products</h1>
@@ -194,6 +205,14 @@
           </div>
 
         </div>
+
+        <!-- 返回页顶按钮（产品区底部） -->
+        <div class="text-center back-to-top">
+          <button id="backToTopBtn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2 mx-auto">
+            <i class="fa-solid fa-arrow-up"></i>
+            <span>Back to Top</span>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -244,11 +263,11 @@
   // 分类切换核心逻辑
   const categoryBtns = document.querySelectorAll('.category-btn');
   const productItems = document.querySelectorAll('.product-item');
-  const productSection = document.getElementById('productSection'); // 产品板块根元素
+  const productSection = document.getElementById('productSection');
 
   // 切换分类的通用函数
   function switchCategory(cat) {
-    // 1. 按钮样式更新
+    // 按钮样式更新
     categoryBtns.forEach(b => {
       b.classList.remove('bg-indigo-600', 'text-white');
       b.classList.add('hover:bg-gray-100');
@@ -259,7 +278,7 @@
       activeBtn.classList.remove('hover:bg-gray-100');
     }
 
-    // 2. 产品显示/隐藏
+    // 产品显示/隐藏
     productItems.forEach(item => {
       if (cat === 'all' || item.classList.contains(cat)) {
         item.classList.remove('hidden');
@@ -268,21 +287,11 @@
       }
     });
 
-    // 3. 强制滚动到产品板块顶部 (关键修复)
-    // 方案1: 滚动到页面最顶部 (推荐)
+    // 滚动到页面顶部
     window.scrollTo({
       top: 0,
-      behavior: 'smooth' // 平滑滚动，改为 'auto' 则瞬间跳转
+      behavior: 'smooth'
     });
-
-    // 方案2: 滚动到产品板块顶部 (如需精准定位产品区，注释方案1，启用方案2)
-    // if (productSection) {
-    //   const sectionTop = productSection.getBoundingClientRect().top + window.pageYOffset - 10;
-    //   window.scrollTo({
-    //     top: sectionTop,
-    //     behavior: 'smooth'
-    //   });
-    // }
   }
 
   // 点击分类按钮切换
@@ -299,6 +308,15 @@
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category') || 'all';
     switchCategory(category);
+  });
+
+  // 返回页顶按钮逻辑
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // 平滑滚动
+    });
   });
 </script>
 
