@@ -1,229 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Home - Timi Trading Limited</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Home - Timi Trading Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .carousel-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      aspect-ratio: 7 / 4;
-      margin: 0 auto;
-      overflow: hidden !important;
-      background: transparent;
-    }
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 7 / 4;
+            margin: 0 auto;
+            overflow: hidden !important;
+            background: transparent;
+        }
 
-    .carousel-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.8s ease-in-out;
-    }
-    .carousel-slide.active {
-      opacity: 1;
-    }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+        }
 
-    .carousel-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
 
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.9);
-      color: #4F46E5;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .prev-btn { left: 10px; }
-    .next-btn { right: 10px; }
-  </style>
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            color: #4F46E5;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+        
+        /* Discover链接hover效果优化 */
+        .discover-link {
+            transition: all 0.2s ease;
+        }
+        .discover-link:hover {
+            color: #4338ca;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
 <!-- Navbar -->
 <nav class="fixed w-full bg-white/95 shadow-md z-50">
-  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-    <a href="index.html" class="flex items-center gap-2">
-      <i class="fa-solid fa-gem text-indigo-600 text-2xl"></i>
-      <span class="text-xl font-bold">Timi Trading Limited</span>
-    </a>
-    <div class="hidden md:flex gap-8">
-      <a href="index.html" class="font-medium text-indigo-600">Home</a>
-      <a href="products.html" class="font-medium hover:text-indigo-600">Products</a>
-      <a href="about.html" class="font-medium hover:text-indigo-600">About Us</a>
-      <a href="contact.html" class="font-medium hover:text-indigo-600">Contact Us</a>
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2">
+            <i class="fa-solid fa-gem text-indigo-600 text-2xl"></i>
+            <span class="text-xl font-bold">Timi Trading Limited</span>
+        </a>
+        <div class="hidden md:flex gap-8">
+            <a href="index.html" class="font-medium text-indigo-600">Home</a>
+            <a href="products.html" class="font-medium hover:text-indigo-600">Products</a>
+            <a href="about.html" class="font-medium hover:text-indigo-600">About Us</a>
+            <a href="contact.html" class="font-medium hover:text-indigo-600">Contact Us</a>
+        </div>
+        <button id="menuBtn" class="md:hidden text-xl">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </div>
-    <button id="menuBtn" class="md:hidden text-xl">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-  </div>
-  <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
-    <div class="container mx-auto px-4 py-2">
-      <a href="index.html" class="block py-2 bg-gray-100">Home</a>
-      <a href="products.html" class="block py-2 hover:bg-gray-100">Products</a>
-      <a href="about.html" class="block py-2 hover:bg-gray-100">About Us</a>
-      <a href="contact.html" class="block py-2 hover:bg-gray-100">Contact Us</a>
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+        <div class="container mx-auto px-4 py-2">
+            <a href="index.html" class="block py-2 bg-gray-100">Home</a>
+            <a href="products.html" class="block py-2 hover:bg-gray-100">Products</a>
+            <a href="about.html" class="block py-2 hover:bg-gray-100">About Us</a>
+            <a href="contact.html" class="block py-2 hover:bg-gray-100">Contact Us</a>
+        </div>
     </div>
-  </div>
 </nav>
 
 <!-- Hero -->
 <section class="pt-24 pb-10 md:pt-32 md:pb-12">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
-    <div class="md:w-1/2">
-      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-tight mb-4">
-        Quality Jewelry at Affordable Prices
-      </h1>
-      <p class="text-lg text-gray-700 mb-8">
-        Timi Trading Limited is a professional jewelry trading company specializing in high-quality lab-grown diamonds and gemstone jewelry.
-      </p>
-      <div class="flex gap-4 justify-center md:justify-start">
-        <a href="products.html?category=all" class="bg-indigo-600 text-white px-8 py-3 rounded-lg">View Products</a>
-        <a href="contact.html" class="border border-indigo-600 text-indigo-600 px-8 py-3 rounded-lg">Contact Us</a>
-      </div>
-    </div>
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-1/2">
+            <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-tight mb-4">
+                Exceptional Jewelry at Unbeatable Prices
+            </h1>
+            <p class="text-lg text-gray-700 mb-8">
+                Timi Trading Limited is a professional jewelry trading company specializing in high-quality lab-grown diamonds and gemstone jewelry.
+            </p>
+            <div class="flex gap-4 justify-center md:justify-start">
+                <a href="products.html?category=all" class="bg-indigo-600 text-white px-8 py-3 rounded-lg">View Products</a>
+                <a href="contact.html" class="border border-indigo-600 text-indigo-600 px-8 py-3 rounded-lg">Contact Us</a>
+            </div>
+        </div>
 
-    <div class="md:w-1/2 w-full">
-      <div class="carousel-wrapper">
-        <div class="carousel-slide active">
-          <img src="main1.jpg" class="carousel-img" alt="Jewelry Collection">
+        <div class="md:w-1/2 w-full">
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="main1.jpg" class="carousel-img" alt="Jewelry Collection">
+                </div>
+                <div class="carousel-slide">
+                    <img src="main2.jpg" class="carousel-img" alt="Gemstone Jewelry">
+                </div>
+                <div class="carousel-slide">
+                    <img src="main3.jpg" class="carousel-img" alt="Lab-grown Diamonds">
+                </div>
+                <button class="carousel-btn prev-btn" id="prevBtn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn" id="nextBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
-        <div class="carousel-slide">
-          <img src="main2.jpg" class="carousel-img" alt="Gemstone Jewelry">
-        </div>
-        <div class="carousel-slide">
-          <img src="main3.jpg" class="carousel-img" alt="Lab-grown Diamonds">
-        </div>
-        <button class="carousel-btn prev-btn" id="prevBtn">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="carousel-btn next-btn" id="nextBtn">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Products -->
 <section id="products" class="py-6 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-6">Our Products</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-        <a href="products.html?category=rings">
-          <img src="rings.jpg" class="w-full h-60 object-cover" alt="Rings">
-          <div class="p-4"><h3 class="font-bold text-lg">Rings</h3></div>
-        </a>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-        <a href="products.html?category=necklaces">
-          <img src="necklaces.jpg" class="w-full h-60 object-cover" alt="Necklaces">
-          <div class="p-4"><h3 class="font-bold text-lg">Necklaces</h3></div>
-        </a>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-        <a href="products.html?category=earrings">
-          <img src="earrings.jpg" class="w-full h-60 object-cover" alt="Earrings">
-          <div class="p-4"><h3 class="font-bold text-lg">Earrings</h3></div>
-        </a>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-md transition">
-        <a href="products.html?category=bracelets">
-          <img src="bracelets.jpg" class="w-full h-60 object-cover" alt="Bracelets">
-          <div class="p-4"><h3 class="font-bold text-lg">Bracelets</h3></div>
-        </a>
-      </div>
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-6">Our Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Rings 分类 - 移除卡片链接，新增Discover小链接 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                <img src="rings.jpg" class="w-full h-60 object-cover" alt="Rings">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Rings</h3>
+                    <a href="products.html?category=rings" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                </div>
+            </div>
+            <!-- Necklaces 分类 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                <img src="necklaces.jpg" class="w-full h-60 object-cover" alt="Necklaces">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Necklaces</h3>
+                    <a href="products.html?category=necklaces" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                </div>
+            </div>
+            <!-- Earrings 分类 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                <img src="earrings.jpg" class="w-full h-60 object-cover" alt="Earrings">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Earrings</h3>
+                    <a href="products.html?category=earrings" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                </div>
+            </div>
+            <!-- Bracelets 分类 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-md transition">
+                <img src="bracelets.jpg" class="w-full h-60 object-cover" alt="Bracelets">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Bracelets</h3>
+                    <a href="products.html?category=bracelets" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="products.html?category=all" class="bg-indigo-600 text-white px-8 py-3 rounded-lg inline-block">
+                View All Products
+            </a>
+        </div>
+
+        <!-- 人工钻石介绍板块（纯英文，无跳转按钮） -->
+        <div class="mt-16 border-t border-gray-200 pt-12">
+            <h3 class="text-2xl font-bold text-center mb-8">Lab-Grown Diamonds</h3>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <!-- 人工钻石图片 -->
+                <div class="md:w-1/2 w-full">
+                    <img src="diamond.jpg" alt="Lab-Grown Diamonds" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+                <!-- 人工钻石介绍（纯英文） -->
+                <div class="md:w-1/2 w-full">
+                    <p class="text-lg text-gray-700 mb-4">
+                        Our lab-grown diamonds are cultivated using advanced HPHT (High Pressure High Temperature) and CVD (Chemical Vapor Deposition) technologies. They are identical to natural diamonds in physical, chemical, and optical properties, but more affordable and environmentally sustainable.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1"></i>
+                            <span>Visually indistinguishable from natural diamonds, with certification from authoritative institutions</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1"></i>
+                            <span>40%-70% lower price than natural diamonds, offering exceptional value for money</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1"></i>
+                            <span>Mine-free, conflict-free, and fully compliant with environmental and ethical standards</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1"></i>
+                            <span>Customizable in carat, color, and clarity to meet your unique requirements</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="text-center mt-8">
-      <a href="products.html?category=all" class="bg-indigo-600 text-white px-8 py-3 rounded-lg inline-block">
-        View All Products
-      </a>
-    </div>
-  </div>
 </section>
 
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <i class="fa-solid fa-gem text-amber-400 text-2xl"></i>
-          <span class="text-xl font-bold">Timi Trading Limited</span>
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-gem text-amber-400 text-2xl"></i>
+                    <span class="text-xl font-bold">Timi Trading Limited</span>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-300 hover:text-amber-400">Home</a></li>
+                    <li><a href="products.html" class="text-gray-300 hover:text-amber-400">Products</a></li>
+                    <li><a href="about.html" class="text-gray-300 hover:text-amber-400">About Us</a></li>
+                    <li><a href="contact.html" class="text-gray-300 hover:text-amber-400">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Support</h4>
+                <ul class="space-y-2">
+                    <li><a href="faq.html" class="text-gray-300 hover:text-amber-400">FAQ & Policies</a></li>
+                    <li><a href="terms.html" class="text-gray-300 hover:text-amber-400">Terms & Conditions</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="index.html" class="text-gray-300 hover:text-amber-400">Home</a></li>
-          <li><a href="products.html" class="text-gray-300 hover:text-amber-400">Products</a></li>
-          <li><a href="about.html" class="text-gray-300 hover:text-amber-400">About Us</a></li>
-          <li><a href="contact.html" class="text-gray-300 hover:text-amber-400">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-lg font-bold mb-4">Support</h4>
-        <ul class="space-y-2">
-          <li><a href="faq.html" class="text-gray-300 hover:text-amber-400">FAQ & Policies</a></li>
-          <li><a href="terms.html" class="text-gray-300 hover:text-amber-400">Terms & Conditions</a></li>
-        </ul>
-      </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            © 2026 Timi Trading Limited. All rights reserved.
+        </div>
     </div>
-    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-      © 2026 Timi Trading Limited. All rights reserved.
-    </div>
-  </div>
 </footer>
 
 <script>
-  // 移动端菜单
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    // 移动端菜单
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-  // 轮播逻辑
-  const slides = document.querySelectorAll('.carousel-slide');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let current = 0;
+    // 轮播逻辑
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let current = 0;
 
-  function showSlide(index) {
-    slides.forEach(s => s.classList.remove('active'));
-    current = (index + slides.length) % slides.length;
-    slides[current].classList.add('active');
-  }
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+    }
 
-  prevBtn?.addEventListener('click', () => showSlide(current - 1));
-  nextBtn?.addEventListener('click', () => showSlide(current + 1));
-  setInterval(() => showSlide(current + 1), 3000);
-  window.addEventListener('load', () => showSlide(0));
+    prevBtn?.addEventListener('click', () => showSlide(current - 1));
+    nextBtn?.addEventListener('click', () => showSlide(current + 1));
+    setInterval(() => showSlide(current + 1), 3000);
+    window.addEventListener('load', () => showSlide(0));
 </script>
 
 </body>
