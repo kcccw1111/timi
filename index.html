@@ -71,6 +71,14 @@
             color: #4338ca;
             text-decoration: underline;
         }
+
+        /* 新增：产品卡片标题+链接的容器布局 */
+        .product-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -145,36 +153,44 @@
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-6">Our Products</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Rings 分类 - 移除卡片链接，新增Discover小链接 -->
+            <!-- Rings 分类 - 调整布局：标题+链接放在flex容器中实现左右分布 -->
             <div class="bg-white rounded-xl shadow hover:shadow-md transition">
                 <img src="rings.jpg" class="w-full h-60 object-cover" alt="Rings">
                 <div class="p-4">
-                    <h3 class="font-bold text-lg">Rings</h3>
-                    <a href="products.html?category=rings" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    <div class="product-card-header"> <!-- 新增flex容器 -->
+                        <h3 class="font-bold text-lg">Rings</h3>
+                        <a href="products.html?category=rings" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    </div>
                 </div>
             </div>
             <!-- Necklaces 分类 -->
             <div class="bg-white rounded-xl shadow hover:shadow-md transition">
                 <img src="necklaces.jpg" class="w-full h-60 object-cover" alt="Necklaces">
                 <div class="p-4">
-                    <h3 class="font-bold text-lg">Necklaces</h3>
-                    <a href="products.html?category=necklaces" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    <div class="product-card-header"> <!-- 新增flex容器 -->
+                        <h3 class="font-bold text-lg">Necklaces</h3>
+                        <a href="products.html?category=necklaces" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    </div>
                 </div>
             </div>
             <!-- Earrings 分类 -->
             <div class="bg-white rounded-xl shadow hover:shadow-md transition">
                 <img src="earrings.jpg" class="w-full h-60 object-cover" alt="Earrings">
                 <div class="p-4">
-                    <h3 class="font-bold text-lg">Earrings</h3>
-                    <a href="products.html?category=earrings" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    <div class="product-card-header"> <!-- 新增flex容器 -->
+                        <h3 class="font-bold text-lg">Earrings</h3>
+                        <a href="products.html?category=earrings" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    </div>
                 </div>
             </div>
             <!-- Bracelets 分类 -->
             <div class="bg-white rounded-xl shadow hover:shadow-md transition">
                 <img src="bracelets.jpg" class="w-full h-60 object-cover" alt="Bracelets">
                 <div class="p-4">
-                    <h3 class="font-bold text-lg">Bracelets</h3>
-                    <a href="products.html?category=bracelets" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    <div class="product-card-header"> <!-- 新增flex容器 -->
+                        <h3 class="font-bold text-lg">Bracelets</h3>
+                        <a href="products.html?category=bracelets" class="discover-link text-indigo-600 text-sm mt-2 inline-block">Discover</a>
+                    </div>
                 </div>
             </div>
         </div>
